@@ -1,4 +1,4 @@
-# 🛡️ RadarIA - Plataforma de Verificação de Fake News
+# RadarIA - Plataforma de Verificação de Fake News
 
 Uma plataforma moderna para auditoria, checagem e monitoramento de notícias em tempo real, combinando **Inteligência Artificial (modelo fine-tuned de 0.6B)**, layout inspirado no **Twitter/X em tons escuros e roxo translúcido (*Glassmorphism*)** e validação comunitária com **sistema de Upvotes/Downvotes estilo Reddit**.
 
@@ -16,15 +16,15 @@ Uma plataforma moderna para auditoria, checagem e monitoramento de notícias em 
 
 ---
 
-## 📑 3 Telas Principais do Feed
+## 3 Telas Principais do Feed
 
-1. **🔥 Em Alta (Trending):** As notícias mais relevantes no topo, ranqueadas pelo saldo de Upvotes da comunidade + repercussão da matéria.
-2. **⭐ Meus Tópicos:** Feed personalizado de acordo com as preferências do usuário. Conta com chips clicáveis de categorias pré-definidas (*Tecnologia, Saúde, Ciência, Política, Economia, etc.*) e suporte para adicionar tags personalizadas salvas diretamente no navegador (`LocalStorage`, sem exigir login).
-3. **⏱️ Recentes:** Linha do tempo cronológica com as últimas notícias checadas pelo sistema.
+1. **Em Alta (Trending):** As notícias mais relevantes no topo, ranqueadas pelo saldo de Upvotes da comunidade + repercussão da matéria.
+2. **Meus Tópicos:** Feed personalizado de acordo com as preferências do usuário. Conta com chips clicáveis de categorias pré-definidas (*Tecnologia, Saúde, Ciência, Política, Economia, etc.*) e suporte para adicionar tags personalizadas salvas diretamente no navegador (`LocalStorage`, sem exigir login).
+3. **Recentes:** Linha do tempo cronológica com as últimas notícias checadas pelo sistema.
 
 ---
 
-## 🧠 Arquitetura da Inteligência Artificial
+## Arquitetura da Inteligência Artificial
 
 - **Arquitetura Base:** `XLMRobertaForSequenceClassification` (560M parâmetros, ~0.6B).
 - **Fine-Tuning:** Calibrado especificamente para o português brasileiro na classificação de desinformação vs notícias jornalísticas reais.
@@ -33,7 +33,7 @@ Uma plataforma moderna para auditoria, checagem e monitoramento de notícias em 
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Frontend
 - **React 18** + **Vite**
@@ -51,7 +51,7 @@ Uma plataforma moderna para auditoria, checagem e monitoramento de notícias em 
 
 ---
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 - **Python 3.10+** (recomendado com ambiente virtual)
@@ -112,7 +112,7 @@ npm run dev
 
 ---
 
-## 🌐 Endpoints da API
+## Endpoints da API
 
 - `GET /api/health` - Status do servidor e confirmação de carregamento do modelo de IA.
 - `GET /api/news?tab=trending|topics|recent` - Retorna o feed de notícias filtrado ou ordenado.
