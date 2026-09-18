@@ -4,7 +4,7 @@ Uma plataforma moderna para auditoria, checagem e monitoramento de notícias em 
 
 ---
 
-## 📸 Demonstração do Projeto
+## Demonstração do Projeto
 
 - **Layout Twitter/X:** Navegação lateral com colunas fixas e feed central fluido.
 - **Glassmorphism Escuro:** Interface moderna em tons de preto (`#08050e`) com detalhes em roxo vibrante e efeito de vidro translúcido (`backdrop-blur`).
@@ -16,7 +16,7 @@ Uma plataforma moderna para auditoria, checagem e monitoramento de notícias em 
 
 ---
 
-## 3 Telas Principais do Feed
+## As 3 Telas Principais do Feed
 
 1. **Em Alta (Trending):** As notícias mais relevantes no topo, ranqueadas pelo saldo de Upvotes da comunidade + repercussão da matéria.
 2. **Meus Tópicos:** Feed personalizado de acordo com as preferências do usuário. Conta com chips clicáveis de categorias pré-definidas (*Tecnologia, Saúde, Ciência, Política, Economia, etc.*) e suporte para adicionar tags personalizadas salvas diretamente no navegador (`LocalStorage`, sem exigir login).
