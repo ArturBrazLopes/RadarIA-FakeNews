@@ -1,0 +1,47 @@
+# Environment & Secrets
+.env
+*.env
+API-News.env
+!*.env.example
+!API-News.env.example
+
+# Large Model Weights (>100MB cannot be pushed to standard GitHub)
+*.zip
+*.rar
+*.tar.gz
+*.safetensors
+modelo-fake-news-finetuned/
+model/
+
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+backend/fakenews.db
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.npm
+npm-debug.log*
+
+# macOS & Editor
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.idea/
+.vscode/
+*.swp
