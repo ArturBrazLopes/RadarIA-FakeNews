@@ -7,12 +7,16 @@ import TopicSelector from './components/TopicSelector';
 
 // Obter ou gerar ID único de cliente no LocalStorage para os votos
 function getClientId() {
-  let id = localStorage.getItem('radar_client_id');
-  if (!id) {
-    id = 'user_' + Math.random().toString(36).substring(2, 11) + Date.now().toString(36);
-    localStorage.setItem('radar_client_id', id);
+  try {
+    let id = localStorage.getItem('radar_client_id');
+    if (!id) {
+      id = 'user_' + Math.random().toString(36).substring(2, 11) + Date.now().toString(36);
+      localStorage.setItem('radar_client_id', id);
+    }
+    return id;
+  } catch (e) {
+    return 'user_' + Math.random().toString(36).substring(2, 11) + Date.now().toString(36);
   }
-  return id;
 }
 
 export default function App() {

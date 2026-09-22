@@ -20,13 +20,18 @@ export default function NewsCard({ article, onVote }) {
   // Format relative date
   const formatDate = (dateStr) => {
     if (!dateStr) return '';
-    const date = new Date(dateStr);
-    const now = new Date();
-    const diffHours = Math.floor((now - date) / (1000 * 60 * 60));
-    if (diffHours < 1) return 'Agora pouco';
-    if (diffHours < 24) return `há ${diffHours}h`;
-    const diffDays = Math.floor(diffHours / 24);
-    return `há ${diffDays}d`;
+    try {
+      const date = new Date(dateStr.includes(' ') && !dateStr.includes('T') ? dateStr.replace(' ', 'T') : dateStr);
+      if (isNaN(date.getTime())) return '';
+      const now = new Date();
+      const diffHours = Math.floor((now - date) / (1000 * 60 * 60));
+      if (diffHours < 1) return 'Agora pouco';
+      if (diffHours < 24) return `há ${diffHours}h`;
+      const diffDays = Math.floor(diffHours / 24);
+      return `há ${diffDays}d`;
+    } catch {
+      return '';
+    }
   };
 
   // Badge configuration based on AI score
