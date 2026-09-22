@@ -11,17 +11,50 @@ echo "=================================================="
 echo "    Iniciando Radar Fake News (Twitter-Style)    "
 echo "=================================================="
 
-# Verificar ambiente virtual
-if [ ! -f ".venv/bin/uvicorn" ]; then
-    echo "❌ Erro: Uvicorn não encontrado em $SCRIPT_DIR/.venv/bin/uvicorn"
-    echo "Certifique-se de que o ambiente virtual está configurado."
+# Verificar se python3 está instalado
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Erro: Python 3 não foi encontrado. Instale o Python 3.10+ para continuar."
     exit 1
 fi
 
-# Verificar frontend
+# 1. Configurar backend (.venv e dependências) se não existirem
+if [ ! -f ".venv/bin/uvicorn" ]; then
+    echo "⚠️  Ambiente virtual (.venv) ou uvicorn não encontrado."
+    echo "📦 Criando ambiente virtual e instalando dependências do backend..."
+    python3 -m venv .venv
+    .venv/bin/pip install --upgrade pip
+    .venv/bin/pip install -r backend/requirements.txt
+    
+    if [ ! -f ".venv/bin/uvicorn" ]; then
+        echo "❌ Falha ao instalar uvicorn. Tente executar manualmente:"
+        echo "   python3 -m venv .venv"
+        echo "   source .venv/bin/activate"
+        echo "   pip install -r backend/requirements.txt"
+        exit 1
+    fi
+    echo "✅ Ambiente virtual configurado com sucesso!"
+fi
+
+# 2. Verificar pasta e dependências do frontend
 if [ ! -d "frontend" ]; then
     echo "❌ Erro: Pasta 'frontend' não encontrada em $SCRIPT_DIR"
     exit 1
+fi
+
+if [ ! -d "frontend/node_modules" ]; then
+    echo "📦 Dependências do frontend não encontradas. Executando 'npm install'..."
+    if command -v npm &> /dev/null; then
+        (cd frontend && npm install)
+        echo "✅ Dependências do frontend instaladas com sucesso!"
+    else
+        echo "⚠️  Aviso: 'npm' não foi encontrado no PATH. Instale o Node.js para rodar o frontend."
+    fi
+fi
+
+# 3. Criar API-News.env a partir do template se não existir
+if [ ! -f "API-News.env" ] && [ -f "API-News.env.example" ]; then
+    echo "ℹ️  Criando API-News.env a partir do template..."
+    cp API-News.env.example API-News.env
 fi
 
 # Função de encerramento seguro
@@ -57,4 +90,3 @@ echo "Pressione Ctrl+C para encerrar."
 echo ""
 
 wait
-
