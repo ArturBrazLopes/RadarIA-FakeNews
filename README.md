@@ -129,3 +129,4 @@ A documentação interativa Swagger fica disponível em: `http://localhost:8000/
 
 Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.
 Desenvolvido por Artur Braz Lopes.
+
